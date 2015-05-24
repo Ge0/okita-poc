@@ -48,20 +48,22 @@
 %define EI_NIDENT   16
 
 struc Elf32_Ehdr
-    e_ident:        resb    16
-    e_type:         resw    1
-    e_machine:      resw    1
-    e_version:      resd    1
-    e_entry:        resd    1
-    e_phoff:        resd    1
-    e_shoff:        resd    1
-    e_flags:        resd    1
-    e_ehsize:       resw    1
-    e_phentsize:    resw    1
-    e_phnum:        resw    1
-    e_shentsize:    resw    1
-    e_shnum:        resw    1
-    e_shstrndx:     resw    1
+    .e_ident:        resb    16
+    .e_type:         resw    1
+    .e_machine:      resw    1
+    .e_version:      resd    1
+    .e_entry:        resd    1
+    .e_phoff:        resd    1
+    .e_shoff:        resd    1
+    .e_flags:        resd    1
+    .e_ehsize:       resw    1
+    .e_phentsize:    resw    1
+    .e_phnum:        resw    1
+    .e_shentsize:    resw    1
+    .e_shnum:        resw    1
+    .e_shstrndx:     resw    1
+
+    .size:
 endstruc
 
 ; These constants define the permissions on sections in the program
@@ -69,6 +71,19 @@ endstruc
 %define PF_R        0x4
 %define PF_W        0x2
 %define PF_X        0x1
+
+struc Elf32_Phdr
+    .p_type:         resd    1
+    .p_offset:       resd    1
+    .p_vaddr:        resd    1
+    .p_paddr:        resd    1
+    .p_filesz:       resd    1
+    .p_memsz:        resd    1
+    .p_flags:        resd    1
+    .p_align:        resd    1
+
+    .size:
+endstruc
 
 %define EI_MAG0     0   ; e_ident[] indexes
 %define EI_MAG1     1
