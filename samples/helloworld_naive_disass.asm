@@ -28,105 +28,129 @@ header:
 ; Base Address: 0x08048034
 ; Size: 32 bytes
 program_header_0:
-    at Elf32_Phdr.p_type,    dd 6
-    at Elf32_Phdr.p_offset,  dd 52
-    at Elf32_Phdr.p_vaddr,   dd 0x08048034
-    at Elf32_Phdr.p_paddr,   dd 0x08048034
-    at Elf32_Phdr.p_filesz,  dd 256
-    at Elf32_Phdr.p_memsz,   dd 256
-    at Elf32_Phdr.p_flags,   dd 5
-    at Elf32_Phdr.p_align,   dd 4
+   istruc Elf32_Phdr
+        at Elf32_Phdr.p_type,    dd 6
+        at Elf32_Phdr.p_offset,  dd 52
+        at Elf32_Phdr.p_vaddr,   dd 0x08048034
+        at Elf32_Phdr.p_paddr,   dd 0x08048034
+        at Elf32_Phdr.p_filesz,  dd 256
+        at Elf32_Phdr.p_memsz,   dd 256
+        at Elf32_Phdr.p_flags,   dd 5
+        at Elf32_Phdr.p_align,   dd 4
+   iend
+
 ; ---------------- ELF PROGRAM HEADER ----------------
 ; Name: program_header_1
 ; Base Address: 0x08048054
 ; Size: 32 bytes
 program_header_1:
-    at Elf32_Phdr.p_type,    dd 3
-    at Elf32_Phdr.p_offset,  dd 308
-    at Elf32_Phdr.p_vaddr,   dd 0x08048134
-    at Elf32_Phdr.p_paddr,   dd 0x08048134
-    at Elf32_Phdr.p_filesz,  dd 19
-    at Elf32_Phdr.p_memsz,   dd 19
-    at Elf32_Phdr.p_flags,   dd 4
-    at Elf32_Phdr.p_align,   dd 1
+   istruc Elf32_Phdr
+        at Elf32_Phdr.p_type,    dd 3
+        at Elf32_Phdr.p_offset,  dd 308
+        at Elf32_Phdr.p_vaddr,   dd 0x08048134
+        at Elf32_Phdr.p_paddr,   dd 0x08048134
+        at Elf32_Phdr.p_filesz,  dd 19
+        at Elf32_Phdr.p_memsz,   dd 19
+        at Elf32_Phdr.p_flags,   dd 4
+        at Elf32_Phdr.p_align,   dd 1
+   iend
+
 ; ---------------- ELF PROGRAM HEADER ----------------
 ; Name: program_header_2
 ; Base Address: 0x08048074
 ; Size: 32 bytes
 program_header_2:
-    at Elf32_Phdr.p_type,    dd 1
-    at Elf32_Phdr.p_offset,  dd 0
-    at Elf32_Phdr.p_vaddr,   dd 0x08048000
-    at Elf32_Phdr.p_paddr,   dd 0x08048000
-    at Elf32_Phdr.p_filesz,  dd 1316
-    at Elf32_Phdr.p_memsz,   dd 1316
-    at Elf32_Phdr.p_flags,   dd 5
-    at Elf32_Phdr.p_align,   dd 4096
+   istruc Elf32_Phdr
+        at Elf32_Phdr.p_type,    dd 1
+        at Elf32_Phdr.p_offset,  dd 0
+        at Elf32_Phdr.p_vaddr,   dd 0x08048000
+        at Elf32_Phdr.p_paddr,   dd 0x08048000
+        at Elf32_Phdr.p_filesz,  dd 1316
+        at Elf32_Phdr.p_memsz,   dd 1316
+        at Elf32_Phdr.p_flags,   dd 5
+        at Elf32_Phdr.p_align,   dd 4096
+   iend
+
 ; ---------------- ELF PROGRAM HEADER ----------------
 ; Name: program_header_3
 ; Base Address: 0x08048094
 ; Size: 32 bytes
 program_header_3:
-    at Elf32_Phdr.p_type,    dd 1
-    at Elf32_Phdr.p_offset,  dd 1316
-    at Elf32_Phdr.p_vaddr,   dd 0x08049524
-    at Elf32_Phdr.p_paddr,   dd 0x08049524
-    at Elf32_Phdr.p_filesz,  dd 304
-    at Elf32_Phdr.p_memsz,   dd 308
-    at Elf32_Phdr.p_flags,   dd 6
-    at Elf32_Phdr.p_align,   dd 4096
+   istruc Elf32_Phdr
+        at Elf32_Phdr.p_type,    dd 1
+        at Elf32_Phdr.p_offset,  dd 1316
+        at Elf32_Phdr.p_vaddr,   dd 0x08049524
+        at Elf32_Phdr.p_paddr,   dd 0x08049524
+        at Elf32_Phdr.p_filesz,  dd 304
+        at Elf32_Phdr.p_memsz,   dd 308
+        at Elf32_Phdr.p_flags,   dd 6
+        at Elf32_Phdr.p_align,   dd 4096
+   iend
+
 ; ---------------- ELF PROGRAM HEADER ----------------
 ; Name: program_header_4
 ; Base Address: 0x080480B4
 ; Size: 32 bytes
 program_header_4:
-    at Elf32_Phdr.p_type,    dd 2
-    at Elf32_Phdr.p_offset,  dd 1328
-    at Elf32_Phdr.p_vaddr,   dd 0x08049530
-    at Elf32_Phdr.p_paddr,   dd 0x08049530
-    at Elf32_Phdr.p_filesz,  dd 240
-    at Elf32_Phdr.p_memsz,   dd 240
-    at Elf32_Phdr.p_flags,   dd 6
-    at Elf32_Phdr.p_align,   dd 4
+   istruc Elf32_Phdr
+        at Elf32_Phdr.p_type,    dd 2
+        at Elf32_Phdr.p_offset,  dd 1328
+        at Elf32_Phdr.p_vaddr,   dd 0x08049530
+        at Elf32_Phdr.p_paddr,   dd 0x08049530
+        at Elf32_Phdr.p_filesz,  dd 240
+        at Elf32_Phdr.p_memsz,   dd 240
+        at Elf32_Phdr.p_flags,   dd 6
+        at Elf32_Phdr.p_align,   dd 4
+   iend
+
 ; ---------------- ELF PROGRAM HEADER ----------------
 ; Name: program_header_5
 ; Base Address: 0x080480D4
 ; Size: 32 bytes
 program_header_5:
-    at Elf32_Phdr.p_type,    dd 4
-    at Elf32_Phdr.p_offset,  dd 328
-    at Elf32_Phdr.p_vaddr,   dd 0x08048148
-    at Elf32_Phdr.p_paddr,   dd 0x08048148
-    at Elf32_Phdr.p_filesz,  dd 68
-    at Elf32_Phdr.p_memsz,   dd 68
-    at Elf32_Phdr.p_flags,   dd 4
-    at Elf32_Phdr.p_align,   dd 4
+   istruc Elf32_Phdr
+        at Elf32_Phdr.p_type,    dd 4
+        at Elf32_Phdr.p_offset,  dd 328
+        at Elf32_Phdr.p_vaddr,   dd 0x08048148
+        at Elf32_Phdr.p_paddr,   dd 0x08048148
+        at Elf32_Phdr.p_filesz,  dd 68
+        at Elf32_Phdr.p_memsz,   dd 68
+        at Elf32_Phdr.p_flags,   dd 4
+        at Elf32_Phdr.p_align,   dd 4
+   iend
+
 ; ---------------- ELF PROGRAM HEADER ----------------
 ; Name: program_header_6
 ; Base Address: 0x080480F4
 ; Size: 32 bytes
 program_header_6:
-    at Elf32_Phdr.p_type,    dd 1685382480
-    at Elf32_Phdr.p_offset,  dd 1232
-    at Elf32_Phdr.p_vaddr,   dd 0x080484D0
-    at Elf32_Phdr.p_paddr,   dd 0x080484D0
-    at Elf32_Phdr.p_filesz,  dd 20
-    at Elf32_Phdr.p_memsz,   dd 20
-    at Elf32_Phdr.p_flags,   dd 4
-    at Elf32_Phdr.p_align,   dd 4
+   istruc Elf32_Phdr
+        at Elf32_Phdr.p_type,    dd 1685382480
+        at Elf32_Phdr.p_offset,  dd 1232
+        at Elf32_Phdr.p_vaddr,   dd 0x080484D0
+        at Elf32_Phdr.p_paddr,   dd 0x080484D0
+        at Elf32_Phdr.p_filesz,  dd 20
+        at Elf32_Phdr.p_memsz,   dd 20
+        at Elf32_Phdr.p_flags,   dd 4
+        at Elf32_Phdr.p_align,   dd 4
+   iend
+
 ; ---------------- ELF PROGRAM HEADER ----------------
 ; Name: program_header_7
 ; Base Address: 0x08048114
 ; Size: 32 bytes
 program_header_7:
-    at Elf32_Phdr.p_type,    dd 1685382481
-    at Elf32_Phdr.p_offset,  dd 0
-    at Elf32_Phdr.p_vaddr,   dd 0x00000000
-    at Elf32_Phdr.p_paddr,   dd 0x00000000
-    at Elf32_Phdr.p_filesz,  dd 0
-    at Elf32_Phdr.p_memsz,   dd 0
-    at Elf32_Phdr.p_flags,   dd 7
-    at Elf32_Phdr.p_align,   dd 4
+   istruc Elf32_Phdr
+        at Elf32_Phdr.p_type,    dd 1685382481
+        at Elf32_Phdr.p_offset,  dd 0
+        at Elf32_Phdr.p_vaddr,   dd 0x00000000
+        at Elf32_Phdr.p_paddr,   dd 0x00000000
+        at Elf32_Phdr.p_filesz,  dd 0
+        at Elf32_Phdr.p_memsz,   dd 0
+        at Elf32_Phdr.p_flags,   dd 7
+        at Elf32_Phdr.p_align,   dd 4
+   iend
+
 ; ---------------- UNKNOWN REGION ----------------
 ; Name: before_start
 ; Base Address: 0x08048134
