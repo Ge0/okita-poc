@@ -31,3 +31,6 @@ it's all binary instrumentation.
 Okita relies on the powerful capstone disassembly framework to saber binaries. :D
 
 Okita is expected to be written in full C++ with classes language since it provides way more execution speed.
+
+
+Last but not least, I've chosen Okita since he was a powerful warrior and the captain of the first *ban tai* of the Shinsengumi. :D
