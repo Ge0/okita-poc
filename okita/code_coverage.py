@@ -76,3 +76,7 @@ class DataRegion(BinaryRegion):
 class Elf32EhdrRegion(BinaryRegion):
     def get_disassembled(self, disassembler, data):
         disassembler.disassemble_elf32_ehdr_region(self, data)
+
+class Elf32PhdrRegion(BinaryRegion):
+    def get_disassembled(self, disassembler, data):
+        disassembler.disassemble_elf32_phdr_region(self, data)
