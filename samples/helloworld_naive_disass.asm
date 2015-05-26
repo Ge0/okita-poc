@@ -3,47 +3,135 @@ bits 32
 ORG 0x08048000
 ; ---------------- ELF HEADER ----------------
 ; Name: header
-; Base Address: 08048000
+; Base Address: 0x08048000
 ; Size: 52 bytes
 header:
-	istruc Elf32_Ehdr
-		at Elf32_Ehdr.e_ident,      db 127, `ELF`, 1, 1, 1, 0, 0, 0, 0, 0
-		at Elf32_Ehdr.e_type,       dw 2
-		at Elf32_Ehdr.e_machine,    dw 3
-		at Elf32_Ehdr.e_version,    dd 1
-		at Elf32_Ehdr.e_entry,      dd 0x08048330
-		at Elf32_Ehdr.e_phoff,      dd 52
-		at Elf32_Ehdr.e_shoff,      dd 1940
-		at Elf32_Ehdr.e_flags,      dd 0
-		at Elf32_Ehdr.e_ehsize,     dw 52
-		at Elf32_Ehdr.e_phentsize,  dw 32
-		at Elf32_Ehdr.e_phnum,      dw 8
-		at Elf32_Ehdr.e_shentsize,  dw 40
-		at Elf32_Ehdr.e_shnum,      dw 31
-		at Elf32_Ehdr.e_shstrndx,   dw 28
-	iend
+    istruc Elf32_Ehdr
+        at Elf32_Ehdr.e_ident,      db 127, `ELF`, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        at Elf32_Ehdr.e_type,       dw 2
+        at Elf32_Ehdr.e_machine,    dw 3
+        at Elf32_Ehdr.e_version,    dd 1
+        at Elf32_Ehdr.e_entry,      dd 0x08048330
+        at Elf32_Ehdr.e_phoff,      dd 52
+        at Elf32_Ehdr.e_shoff,      dd 1940
+        at Elf32_Ehdr.e_flags,      dd 0
+        at Elf32_Ehdr.e_ehsize,     dw 52
+        at Elf32_Ehdr.e_phentsize,  dw 32
+        at Elf32_Ehdr.e_phnum,      dw 8
+        at Elf32_Ehdr.e_shentsize,  dw 40
+        at Elf32_Ehdr.e_shnum,      dw 31
+        at Elf32_Ehdr.e_shstrndx,   dw 28
+    iend
 
+; ---------------- ELF PROGRAM HEADER ----------------
+; Name: program_header_0
+; Base Address: 0x08048034
+; Size: 32 bytes
+program_header_0:
+    at Elf32_Phdr.p_type,    dd 6
+    at Elf32_Phdr.p_offset,  dd 52
+    at Elf32_Phdr.p_vaddr,   dd 0x08048034
+    at Elf32_Phdr.p_paddr,   dd 0x08048034
+    at Elf32_Phdr.p_filesz,  dd 256
+    at Elf32_Phdr.p_memsz,   dd 256
+    at Elf32_Phdr.p_flags,   dd 5
+    at Elf32_Phdr.p_align,   dd 4
+; ---------------- ELF PROGRAM HEADER ----------------
+; Name: program_header_1
+; Base Address: 0x08048054
+; Size: 32 bytes
+program_header_1:
+    at Elf32_Phdr.p_type,    dd 3
+    at Elf32_Phdr.p_offset,  dd 308
+    at Elf32_Phdr.p_vaddr,   dd 0x08048134
+    at Elf32_Phdr.p_paddr,   dd 0x08048134
+    at Elf32_Phdr.p_filesz,  dd 19
+    at Elf32_Phdr.p_memsz,   dd 19
+    at Elf32_Phdr.p_flags,   dd 4
+    at Elf32_Phdr.p_align,   dd 1
+; ---------------- ELF PROGRAM HEADER ----------------
+; Name: program_header_2
+; Base Address: 0x08048074
+; Size: 32 bytes
+program_header_2:
+    at Elf32_Phdr.p_type,    dd 1
+    at Elf32_Phdr.p_offset,  dd 0
+    at Elf32_Phdr.p_vaddr,   dd 0x08048000
+    at Elf32_Phdr.p_paddr,   dd 0x08048000
+    at Elf32_Phdr.p_filesz,  dd 1316
+    at Elf32_Phdr.p_memsz,   dd 1316
+    at Elf32_Phdr.p_flags,   dd 5
+    at Elf32_Phdr.p_align,   dd 4096
+; ---------------- ELF PROGRAM HEADER ----------------
+; Name: program_header_3
+; Base Address: 0x08048094
+; Size: 32 bytes
+program_header_3:
+    at Elf32_Phdr.p_type,    dd 1
+    at Elf32_Phdr.p_offset,  dd 1316
+    at Elf32_Phdr.p_vaddr,   dd 0x08049524
+    at Elf32_Phdr.p_paddr,   dd 0x08049524
+    at Elf32_Phdr.p_filesz,  dd 304
+    at Elf32_Phdr.p_memsz,   dd 308
+    at Elf32_Phdr.p_flags,   dd 6
+    at Elf32_Phdr.p_align,   dd 4096
+; ---------------- ELF PROGRAM HEADER ----------------
+; Name: program_header_4
+; Base Address: 0x080480B4
+; Size: 32 bytes
+program_header_4:
+    at Elf32_Phdr.p_type,    dd 2
+    at Elf32_Phdr.p_offset,  dd 1328
+    at Elf32_Phdr.p_vaddr,   dd 0x08049530
+    at Elf32_Phdr.p_paddr,   dd 0x08049530
+    at Elf32_Phdr.p_filesz,  dd 240
+    at Elf32_Phdr.p_memsz,   dd 240
+    at Elf32_Phdr.p_flags,   dd 6
+    at Elf32_Phdr.p_align,   dd 4
+; ---------------- ELF PROGRAM HEADER ----------------
+; Name: program_header_5
+; Base Address: 0x080480D4
+; Size: 32 bytes
+program_header_5:
+    at Elf32_Phdr.p_type,    dd 4
+    at Elf32_Phdr.p_offset,  dd 328
+    at Elf32_Phdr.p_vaddr,   dd 0x08048148
+    at Elf32_Phdr.p_paddr,   dd 0x08048148
+    at Elf32_Phdr.p_filesz,  dd 68
+    at Elf32_Phdr.p_memsz,   dd 68
+    at Elf32_Phdr.p_flags,   dd 4
+    at Elf32_Phdr.p_align,   dd 4
+; ---------------- ELF PROGRAM HEADER ----------------
+; Name: program_header_6
+; Base Address: 0x080480F4
+; Size: 32 bytes
+program_header_6:
+    at Elf32_Phdr.p_type,    dd 1685382480
+    at Elf32_Phdr.p_offset,  dd 1232
+    at Elf32_Phdr.p_vaddr,   dd 0x080484D0
+    at Elf32_Phdr.p_paddr,   dd 0x080484D0
+    at Elf32_Phdr.p_filesz,  dd 20
+    at Elf32_Phdr.p_memsz,   dd 20
+    at Elf32_Phdr.p_flags,   dd 4
+    at Elf32_Phdr.p_align,   dd 4
+; ---------------- ELF PROGRAM HEADER ----------------
+; Name: program_header_7
+; Base Address: 0x08048114
+; Size: 32 bytes
+program_header_7:
+    at Elf32_Phdr.p_type,    dd 1685382481
+    at Elf32_Phdr.p_offset,  dd 0
+    at Elf32_Phdr.p_vaddr,   dd 0x00000000
+    at Elf32_Phdr.p_paddr,   dd 0x00000000
+    at Elf32_Phdr.p_filesz,  dd 0
+    at Elf32_Phdr.p_memsz,   dd 0
+    at Elf32_Phdr.p_flags,   dd 7
+    at Elf32_Phdr.p_align,   dd 4
 ; ---------------- UNKNOWN REGION ----------------
 ; Name: before_start
-; Base Address: 08048034
-; Size: 764 bytes
+; Base Address: 0x08048134
+; Size: 508 bytes
 before_start:
-db 0x06, 0x00, 0x00, 0x00, 0x34, 0x00, 0x00, 0x00, 0x34, 0x80, 0x04, 0x08, 0x34, 0x80, 0x04, 0x08
-db 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00
-db 0x03, 0x00, 0x00, 0x00, 0x34, 0x01, 0x00, 0x00, 0x34, 0x81, 0x04, 0x08, 0x34, 0x81, 0x04, 0x08
-db 0x13, 0x00, 0x00, 0x00, 0x13, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-db 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x04, 0x08, 0x00, 0x80, 0x04, 0x08
-db 0x24, 0x05, 0x00, 0x00, 0x24, 0x05, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00
-db 0x01, 0x00, 0x00, 0x00, 0x24, 0x05, 0x00, 0x00, 0x24, 0x95, 0x04, 0x08, 0x24, 0x95, 0x04, 0x08
-db 0x30, 0x01, 0x00, 0x00, 0x34, 0x01, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00
-db 0x02, 0x00, 0x00, 0x00, 0x30, 0x05, 0x00, 0x00, 0x30, 0x95, 0x04, 0x08, 0x30, 0x95, 0x04, 0x08
-db 0xF0, 0x00, 0x00, 0x00, 0xF0, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00
-db 0x04, 0x00, 0x00, 0x00, 0x48, 0x01, 0x00, 0x00, 0x48, 0x81, 0x04, 0x08, 0x48, 0x81, 0x04, 0x08
-db 0x44, 0x00, 0x00, 0x00, 0x44, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00
-db 0x50, 0xE5, 0x74, 0x64, 0xD0, 0x04, 0x00, 0x00, 0xD0, 0x84, 0x04, 0x08, 0xD0, 0x84, 0x04, 0x08
-db 0x14, 0x00, 0x00, 0x00, 0x14, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00
-db 0x51, 0xE5, 0x74, 0x64, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-db 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00
 db 0x2F, 0x6C, 0x69, 0x62, 0x2F, 0x6C, 0x64, 0x2D, 0x6C, 0x69, 0x6E, 0x75, 0x78, 0x2E, 0x73, 0x6F
 db 0x2E, 0x32, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
 db 0x47, 0x4E, 0x55, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00
@@ -80,7 +168,7 @@ db 0x04, 0x08, 0x68, 0x10, 0x00, 0x00, 0x00, 0xE9, 0xC0, 0xFF, 0xFF, 0xFF
 
 ; ---------------- EXECUTABLE CODE ----------------
 ; Name: _start
-; Base Address: 08048330
+; Base Address: 0x08048330
 ; Size: 34 bytes
 _start:
 	xor ebp, ebp
@@ -99,7 +187,7 @@ _start:
 	hlt 
 ; ---------------- UNKNOWN REGION ----------------
 ; Name: after_start
-; Base Address: 08048682
+; Base Address: 0x08048682
 ; Size: 4031 bytes
 after_start:
 db 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0xB8, 0x57

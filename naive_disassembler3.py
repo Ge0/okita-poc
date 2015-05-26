@@ -42,10 +42,34 @@ def elf_gen_code_coverage(elf_file):
     elf_base_address, start_offset = get_elf_information(elf_file)
 
     disasm = binary_disassembler.NaiveBinaryDisassembler(sys.argv[1])
+    # Covering the elf header
     regions = [
-        code_coverage.Elf32EhdrRegion("header", size=elf_file['e_ehsize'], base_address=elf_base_address),
-        code_coverage.UnknownRegion("before_start", size=start_offset-elf_file['e_ehsize'], base_address=elf_base_address+elf_file['e_ehsize'])
+        code_coverage.Elf32EhdrRegion("header", size=elf_file['e_ehsize'], base_address=elf_base_address)
     ]
+
+    # Covering the program headers
+    number_of_program_headers = elf_file['e_phnum']
+    elf_program_header_size = 32
+    i = 0
+    base_address = elf_base_address + elf_file['e_ehsize']
+    while i < number_of_program_headers:
+        regions.append(
+            code_coverage.Elf32PhdrRegion(
+                "program_header_%d" % (i),
+                size=elf_program_header_size,
+                base_address=base_address
+            )
+        )
+        base_address += elf_program_header_size
+        i += 1
+
+    regions.append(
+        code_coverage.UnknownRegion(
+            "before_start",
+            size=(elf_base_address+start_offset)-base_address,
+            base_address=base_address
+        )
+    )
 
     # start code until ret/hlt
     regions.append(create_start_proc_region(binary_content[start_offset:], elf_file['e_entry']))
