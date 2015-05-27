@@ -31,15 +31,18 @@ if len(sys.argv) < 2:
 def get_elf_information(elf_file):
     base_address = 0
     start_offset = 0
+    interp_segment = None
     for segment in elf_file.iter_segments():
+        if(segment['p_type'] == 'PT_INTERP'):
+            interp_segment = (segment['p_vaddr'], segment['p_filesz'])
         if(segment['p_type'] == 'PT_LOAD' and segment['p_offset'] == 0):
             base_address = segment['p_vaddr']
         if(elf_file['e_entry'] >= segment['p_vaddr'] and elf_file['e_entry'] < (segment['p_vaddr'] + segment['p_filesz'])):
             start_offset = segment['p_offset'] + (elf_file['e_entry'] - base_address)
-    return (base_address, start_offset)
+    return (base_address, start_offset, interp_segment)
 
 def elf_gen_code_coverage(elf_file):
-    elf_base_address, start_offset = get_elf_information(elf_file)
+    elf_base_address, start_offset, interp_segment = get_elf_information(elf_file)
 
     disasm = binary_disassembler.NaiveBinaryDisassembler(sys.argv[1])
     # Covering the elf header
@@ -62,6 +65,16 @@ def elf_gen_code_coverage(elf_file):
         )
         base_address += elf_program_header_size
         i += 1
+
+    if interp_segment and interp_segment[0] == base_address:
+        regions.append(
+            code_coverage.ElfInterpRegion(
+                "interp_segment",
+                size=interp_segment[1],
+                base_address = base_address
+            )
+        )
+        base_address += interp_segment[1]
 
     regions.append(
         code_coverage.UnknownRegion(

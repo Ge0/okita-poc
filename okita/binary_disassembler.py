@@ -63,15 +63,19 @@ class NaiveBinaryDisassembler(BinaryDisassembler):
         self._handle.write("        at Elf32_Ehdr.e_shstrndx,   dw %d\n" % (struct.unpack('<H', data[50:52])[0]))
         self._handle.write("    iend\n\n")
 
+    def disassemble_elf_interp_region(self, region, data):
+        self._output_region_comments(region, "INTERP SEGMENT")
+        self._handle.write("%s:\n" % (region.label))
+        self._handle.write("    db `%s`, 0\n\n" % (data[:-1].decode()))
 
     def disassemble_unknown_region(self, region, data):
         self._output_region_comments(region, "UNKNOWN REGION")
         self._handle.write("%s:\n" % (region.label))
-        self._handle.write("db 0x%02X" % (data[0]))
+        self._handle.write("    db 0x%02X" % (data[0]))
         i = 1
         while i < len(data):
             if(i % 16 == 0):
-                self._handle.write("\ndb 0x%02X" % (data[i]))
+                self._handle.write("\n    db 0x%02X" % (data[i]))
             else:
                 self._handle.write(", 0x%02X" % (data[i]))
             i += 1
