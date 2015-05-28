@@ -30,6 +30,8 @@ it's all binary instrumentation.
 
 Okita relies on the powerful capstone disassembly framework to saber binaries. :D
 
+Some tests of built-from-scratch binaries are inspired from the awesome corkami database. You can check it out here: [https://github.com/corkami/pocs/](https://github.com/corkami/pocs).
+
 At the moment, the proofs of concept are written in python since this is easier to code with.
 Later on, Okita is expected to be written in full C++ with classes language since it provides way more execution speed.
 
