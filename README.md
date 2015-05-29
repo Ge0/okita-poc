@@ -28,7 +28,10 @@ The ultime goal would be to modify the binary with ease, without relying on memo
 This is a very challenging task since you have to write asm code to fit into the binary. There is neither compilation nor linking summoned at this stage,
 it's all binary instrumentation.
 
-Okita relies on the powerful capstone disassembly framework to saber binaries. :D
+Okita relies on:
+
+- the powerful capstone disassembly framework to saber binaries. ( :D )
+- pyelftools to deal with elf binaries.
 
 Some tests of built-from-scratch binaries are inspired from the awesome corkami database. You can check it out here: [https://github.com/corkami/pocs/](https://github.com/corkami/pocs).
 
