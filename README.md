@@ -1,3 +1,6 @@
+O.K.I.T.A.
+======
+
 Okita (**O**pen **K**ernel **I**nstrumenting **T**o **A**ssembly) is currently a set of proof-of-concepts aiming at disassembling binaries to asm sources.
 
 The main goal is to be able to do :
