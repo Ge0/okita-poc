@@ -33,8 +33,8 @@ it's all binary instrumentation.
 
 Okita relies on:
 
-- the powerful capstone disassembly framework to saber binaries. ( :D )
-- pyelftools to deal with elf binaries.
+- [Capstone](http://www.capstone-engine.org/), the powerful disassembly framework to saber binaries. ( :D ) 
+- [pyelftools](https://pypi.python.org/pypi/pyelftools/0.23) to deal with elf binaries.
 
 Some tests of built-from-scratch binaries are inspired from the awesome corkami database. You can check it out here: [https://github.com/corkami/pocs/](https://github.com/corkami/pocs).
 
